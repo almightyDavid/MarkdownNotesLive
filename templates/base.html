@@ -35,7 +35,7 @@
 
     <div class="nav">
         <br>
-        <h1>Los Santos Notes</h1>
+        <h1>Notes</h1>
         <div>
         {% if current_user.is_authenticated %}
             <a href="/dashboard">Dashboard</a>
@@ -49,10 +49,6 @@
     <br>
     <div class="content">
         {% block content %}{% endblock %}
-    </div>
-
-    <div class="footer">
-        random a footer
     </div>
 
 </div>

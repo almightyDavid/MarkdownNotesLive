@@ -5,12 +5,12 @@
     {{ form.hidden_tag() }}
     {{ form.username }}
     {% for error in form.username.errors %}
-        <div class="errors">{{ error }}</div>
+        <div class="error">{{ error }}</div>
     {% endfor %}
     
     {{ form.password }}
     {% for error in form.password.errors %}
-        <div class="errors">{{ error }}</div>
+        <div class="error">{{ error }}</div>
     {% endfor %}
 
     <button type="submit">Login</button>
