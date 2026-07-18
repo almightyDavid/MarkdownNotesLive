@@ -1,0 +1,114 @@
+/* RESET / BASE */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+/* TOP BAR */
+.topbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Sidebar toggle button (hidden on desktop) */
+.sidebar-button {
+  display: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* LAYOUT */
+.layout {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 20%;
+  min-width: 200px;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+}
+
+/* CONTENT (80%) */
+.content {
+  width: 80%;
+  position: relative;
+  overflow: auto;
+}
+
+/* Inner wrapper allows bottom-right positioning */
+.content-inner {
+  position: relative;
+  min-height: 100%;
+  padding: 1rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+
+/* Bottom-right paragraph */
+#bottom-right-text {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* ========================= */
+/* TABLET + PHONE */
+/* ========================= */
+@media (max-width: 900px) {
+  .sidebar-button {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    height: calc(100% - 56px);
+    width: 75%;
+    max-width: 300px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    background: #fff;
+    z-index: 1000;
+  }
+
+  /* Sidebar open */
+  #sidebar-toggle:checked ~ .layout .sidebar {
+    transform: translateX(0);
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .content {
+    width: 100%;
+  }
+}
+
+/* Hide checkbox */
+#sidebar-toggle {
+  display: none;
+}

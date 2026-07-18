@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}Notes{% endblock %}</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/static/css/pico.min.css">
+    <link rel="stylesheet" href="/static/newcss.css">
+    
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+
+
+    <!-- KaTeX -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="nav">
+        <br>
+        <h1>Los Santos Notes</h1>
+        <div>
+        {% if current_user.is_authenticated %}
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+        </div>
+    </div>
+    <br>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        random a footer
+    </div>
+
+</div>
+<script src=" {{ url_for('static', filename='js/markdown.js') }} "></script>
+</body>
+</html>

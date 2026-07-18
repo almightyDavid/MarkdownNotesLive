@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h1>Register</h1>
+
+<form method="post">
+    {{ form.hidden_tag() }}
+
+    <div>
+        {{ form.username(placeholder="Username") }}
+        {% for error in form.username.errors %}
+            <div class="error">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.password(placeholder="Password") }}
+        {% for error in form.password.errors %}
+            <div class="error">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.confirm(placeholder="Confirm password") }}
+        {% for error in form.confirm.errors %}
+            <div class="error">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <button type="submit">Register</button>
+</form>
+{% endblock %}

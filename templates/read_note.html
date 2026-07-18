@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ note.title }}{% endblock %}
+
+{% block content %}
+
+{% for tag in note.tags %}
+    <span class="tag">{{ tag.name }}</span>
+{% endfor %}
+
+<h1>{{ note.title }}</h1>
+
+<div class="note-content" id="note-content">
+    {{ rendered | safe }}
+</div>
+
+<div class="actions">
+    <a href="/notes/{{ note.id }}/edit" class="btn">EDIT</a>
+
+    <form method="post" action="/notes/{{ note.id }}/delete">
+        <button class="btn btn-danger">DELETE</button>
+    </form>
+
+    <a href="/dashboard" class="btn btn-secondary">BACK</a>
+</div>
+
+<script src=" {{ url_for('static', filename='js/markdown.js') }} "></script>
+
+{% endblock %}

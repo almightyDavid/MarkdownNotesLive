@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Your Notes, {{ current_user.username }}</h1>
+
+<input
+    id="search"
+    type="search"
+    placeholder="Search Notes..."
+>
+
+<a href="/notes/new" class="btn">+ NEW NOTE</a>
+
+<div id="note-list">
+    {% include "note_list.html" %}
+</div>
+
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+
+{% endblock %}

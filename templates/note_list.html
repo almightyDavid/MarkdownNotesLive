@@ -1,0 +1,11 @@
+<ul>
+{% for note in notes %}
+        <li>
+                <a href="/notes/{{ note.id }}">
+                        {{ note.title or "Untitled note" }}
+                </a>
+        </li>
+{% else %}
+        <li>No Notes yet</li>
+{% endfor %}
+</ul>
