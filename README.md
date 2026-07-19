@@ -1,6 +1,7 @@
 # MarkdownNotesLive
 
 A note taking web app with live Markdown rendering and user authentication.
+![screenshot](screenshots/notes_screenshot.png)
 
 ## Installation
 
