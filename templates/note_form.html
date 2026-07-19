@@ -1,32 +1,33 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <h1>{{ header }}</h1>
 
+<div class="note-editor">
+    <form method="post" class="note-editor-form">
+        {{ form.hidden_tag() }}
 
-<form method="post">
-    {{ form.hidden_tag() }}
+        <p id="autosave-status" class="autosave-status"></p>
 
-    <p id="autosave-status" class="autosave-status"></p>
+        <input
+            name="tags"
+            placeholder="Tags, separated by commas"
+            value="{{ tags if tags is defined else '' }}"
+        />
 
-    <input
-        name="tags"
-        placeholder="Tags, seperated by commas"
-        value="{{ tags if tags is defined else '' }}"
-    >
-    {{ form.title(class="input", id="title-input") }}
+        {{ form.title(class="input", id="title-input") }} {{
+        form.content(class="textarea", id="markdown-input", rows=20) }}
 
-    {{ form.content(class="textarea", id="markdown-input", rows=15) }}
+        <div class="actions">
+            {{ form.submit(class="btn") }}
+            <a href="/dashboard" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
 
-    <div class="actions">
-        {{ form.submit(class="btn") }}
-        <a href="/dashboard" class="btn btn-secondary">Cancel</a>
-    </div>
-</form>
-<div class="preview">
-    <h3>Preview</h3>
-    <div id="markdown-preview" class="preview-box"></div>
+    <section class="preview" aria-label="Markdown preview">
+        <h3>Preview</h3>
+        <div id="markdown-preview" class="preview-box"></div>
+    </section>
 </div>
 
-<script src=" {{ url_for('static', filename='js/autosave.js') }}"></script>
+<script src="{{ url_for('static', filename='js/autosave.js') }}"></script>
 {% endblock %}
