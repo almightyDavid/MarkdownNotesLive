@@ -5,10 +5,12 @@
 {% block content %}
 <h1>Your Notes, {{ current_user.username }}</h1>
 
+<label for="search">Search notes</label>
+
 <input
     id="search"
     type="search"
-    placeholder="Search Notes..."
+    placeholder="Search by title, content, or tag..."
     autocomplete="off"
 >
 
@@ -18,13 +20,6 @@
         class="btn"
     >
         + NEW NOTE
-    </a>
-
-    <a
-        href="{{ url_for('notes.export_notes') }}"
-        class="btn btn-secondary"
-    >
-        EXPORT ALL AS ZIP
     </a>
 </div>
 
