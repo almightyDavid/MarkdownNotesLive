@@ -1,7 +1,16 @@
 # MarkdownNotesLive
 
-A note taking web app with live Markdown rendering and user authentication.
+A note taking web app using flask, with live Markdown rendering and user authentication.
+
 ![screenshot](screenshots/notes_screenshot.png)
+
+Dashboard search functions:
+'''text
+/t <tagname>
+/c <content>
+/n <title>
+'''
+searching without prefix includes content and title
 
 ## Installation
 
