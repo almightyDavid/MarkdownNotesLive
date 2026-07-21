@@ -5,11 +5,11 @@ A note taking web app using flask, with live Markdown rendering and user authent
 ![screenshot](screenshots/notes_screenshot.png)
 
 Dashboard search functions:
-'''text
+```text
 /t <tagname>
 /c <content>
 /n <title>
-'''
+```
 searching without prefix includes content and title
 
 ## Installation
