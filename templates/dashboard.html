@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
@@ -8,14 +9,30 @@
     id="search"
     type="search"
     placeholder="Search Notes..."
+    autocomplete="off"
 >
 
-<a href="/notes/new" class="btn">+ NEW NOTE</a>
+<div class="actions">
+    <a
+        href="{{ url_for('notes.new_note') }}"
+        class="btn"
+    >
+        + NEW NOTE
+    </a>
+
+    <a
+        href="{{ url_for('notes.export_notes') }}"
+        class="btn btn-secondary"
+    >
+        EXPORT ALL AS ZIP
+    </a>
+</div>
 
 <div id="note-list">
     {% include "note_list.html" %}
 </div>
 
-<script src="{{ url_for('static', filename='js/search.js') }}"></script>
-
+<script
+    src="{{ url_for('static', filename='js/search.js') }}"
+></script>
 {% endblock %}
