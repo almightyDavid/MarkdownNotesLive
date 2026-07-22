@@ -10,7 +10,7 @@ Dashboard search functions:
 /c <content>
 /n <title>
 ```
-searching without prefix includes content and title
+Searching without prefix includes content and title
 
 ## Installation
 
